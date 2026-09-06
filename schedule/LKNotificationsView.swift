@@ -9,18 +9,21 @@ struct LKNotificationsView: View {
     private var accent: Color { AccentColors.color(accentRaw) }
     
     var body: some View {
-        Group {
-            if manager.isLoading && manager.notifications.isEmpty {
-                loadingView
-            } else if let error = manager.error {
-                errorView(error)
-            } else if manager.notifications.isEmpty {
-                emptyView
-            } else {
-                notificationsList
+        ZStack {
+            Palette.background.ignoresSafeArea()
+            
+            Group {
+                if manager.isLoading && manager.notifications.isEmpty {
+                    loadingView
+                } else if let error = manager.error {
+                    errorView(error)
+                } else if manager.notifications.isEmpty {
+                    emptyView
+                } else {
+                    notificationsList
+                }
             }
         }
-        .background(Palette.background.ignoresSafeArea())
         .navigationTitle("Уведомления")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
