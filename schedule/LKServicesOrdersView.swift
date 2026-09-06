@@ -8,7 +8,7 @@ struct LKServicesOrdersView: View {
     private var accent: Color { AccentColors.color(accentRaw) }
     
     var body: some View {
-        Group {
+        SwiftUI.Group {
             if manager.isLoading && manager.orders.isEmpty {
                 loadingView
             } else if let error = manager.error {
@@ -155,7 +155,7 @@ private struct OrderCard: View {
                             .padding(.vertical, 4)
                             .background(order.statusColor, in: Capsule())
                         
-                        if let dateStr = order.formattedCreatedAt {
+                        if let dateStr = order.formattedCreatedAt, !dateStr.isEmpty {
                             Text(dateStr)
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
