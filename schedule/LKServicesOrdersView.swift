@@ -155,8 +155,8 @@ private struct OrderCard: View {
                             .padding(.vertical, 4)
                             .background(order.statusColor, in: Capsule())
                         
-                        if let dateStr = order.formattedCreatedAt, !dateStr.isEmpty {
-                            Text(dateStr)
+                        if !order.formattedCreatedAt.isEmpty {
+                            Text(order.formattedCreatedAt)
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
                         }
