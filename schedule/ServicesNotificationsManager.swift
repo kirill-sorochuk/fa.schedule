@@ -1,6 +1,5 @@
 import Foundation
 import Combine
-import WebKit
 
 // MARK: - Модели уведомлений (lk.fa.ru/services/api/profile/v1/notification)
 
