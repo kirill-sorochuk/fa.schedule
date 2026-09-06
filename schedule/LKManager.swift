@@ -22,6 +22,10 @@ struct LKExtendedUserData: Codable {
     let avatarUrl: String?
     let id: String?
     let group: String?
+    // Расширенные данные (из /api/user-data/)
+    let filial: String?
+    let identityDoc: String?
+    let availableOtpMethods: [String]?
 }
 
 struct LKSession: Codable {

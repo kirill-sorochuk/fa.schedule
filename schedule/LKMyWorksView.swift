@@ -265,9 +265,13 @@ struct VkrDoc: Codable, Identifiable {
     let score: Double?
     let plagiarism: Double?
     let legal: Double?
+    let selfcite: Double?
+    let suspicious: Bool?
+    let checkDuration: Int?
+    let checkEnd: String?
+    let checkStart: String?
     let allowDefend: Bool?
     let allowDefendAt: String?
-    let checkEnd: String?
     let media: [VkrMedia]?
 
     enum CodingKeys: String, CodingKey {
@@ -275,10 +279,12 @@ struct VkrDoc: Codable, Identifiable {
         case krType = "krtype"
         case status
         case chState = "chstate"
-        case score, plagiarism, legal
+        case score, plagiarism, legal, selfcite, suspicious
+        case checkDuration = "check_duration"
+        case checkEnd = "check_end"
+        case checkStart = "check_start"
         case allowDefend = "allowdefend"
         case allowDefendAt = "allowdefend_at"
-        case checkEnd = "check_end"
         case media
     }
 
@@ -290,6 +296,17 @@ struct VkrDoc: Codable, Identifiable {
         case "Failed": return "Ошибка"
         default: return status ?? "—"
         }
+    }
+    
+    /// Длительность проверки в читаемом виде
+    var checkDurationString: String? {
+        guard let seconds = checkDuration, seconds > 0 else { return nil }
+        let minutes = seconds / 60
+        let secs = seconds % 60
+        if minutes > 0 {
+            return "\(minutes) мин \(secs) сек"
+        }
+        return "\(secs) сек"
     }
 }
 
@@ -1095,7 +1112,22 @@ struct LKMyWorkDetailView: View {
                     if let legal = vkrdoc.legal, legal > 0 {
                         scoreView(label: "Цитирование", value: String(format: "%.2f%%", legal), color: .blue)
                     }
+                    if let selfcite = vkrdoc.selfcite, selfcite > 0 {
+                        scoreView(label: "Самоцит.", value: String(format: "%.2f%%", selfcite), color: .purple)
+                    }
                 }
+            }
+            // Длительность проверки
+            if let durationStr = vkrdoc.checkDurationString {
+                HStack(spacing: 6) {
+                    Image(systemName: "clock.fill")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.secondary)
+                    Text("Проверка: \(durationStr)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.top, 4)
             }
             if let chState = vkrdoc.chState, !chState.isEmpty {
                 Label(chState, systemImage: "checkmark.seal.fill")

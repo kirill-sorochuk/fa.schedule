@@ -1,0 +1,36 @@
+```
+# Compiled and build artifacts
+*.o
+*.obj
+*.out
+
+# Dependencies
+Pods/
+Carthage/
+build/
+DerivedData/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserdatad/
+*.xccheckout
+project.xcworkspace/
+xcuserdata/
+```
