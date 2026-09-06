@@ -12,7 +12,7 @@ struct LKNotificationsView: View {
         ZStack {
             Palette.background.ignoresSafeArea()
             
-            Group {
+            SwiftUI.Group {
                 if manager.isLoading && manager.notifications.isEmpty {
                     loadingView
                 } else if let error = manager.error {
@@ -259,7 +259,7 @@ private struct HTMLTextView: UIViewRepresentable {
         if let data = htmlString.data(using: .utf8),
            let attributed = try? NSAttributedString(
                data: data,
-               options: [.documentType: .html, .characterEncoding: String.Encoding.utf8.rawValue],
+               options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue],
                documentAttributes: nil
            ) {
             textView.attributedText = attributed
