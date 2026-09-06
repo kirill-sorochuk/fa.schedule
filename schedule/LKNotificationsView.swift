@@ -259,7 +259,10 @@ private struct HTMLTextView: UIViewRepresentable {
         if let data = htmlString.data(using: .utf8),
            let attributed = try? NSAttributedString(
                data: data,
-               options: [NSAttributedString.DocumentType.html, NSAttributedString.CharacterEncoding.utf8],
+               options: [
+                   NSAttributedString.DocumentType.html: nil,
+                   NSAttributedString.CharacterEncoding.utf8: nil
+               ],
                documentAttributes: nil
            ) {
             textView.attributedText = attributed

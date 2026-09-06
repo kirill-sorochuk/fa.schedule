@@ -73,11 +73,6 @@ struct OrderTicket: Codable, Hashable {
     let state: String?
     let stateType: String?
     let serviceId: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case id, ticketNumber, state, stateType
-        case serviceId = "serviceId"
-    }
 }
 
 struct OrderService: Codable, Hashable {
