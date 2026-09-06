@@ -67,7 +67,7 @@ struct ServicesOrder: Codable, Identifiable, Hashable {
     }
 }
 
-struct OrderTicket: Codable {
+struct OrderTicket: Codable, Hashable {
     let id: Int?
     let ticketNumber: String?
     let state: String?
@@ -80,7 +80,7 @@ struct OrderTicket: Codable {
     }
 }
 
-struct OrderService: Codable {
+struct OrderService: Codable, Hashable {
     let id: Int?
     let name: String?
     let title: String?
@@ -88,7 +88,7 @@ struct OrderService: Codable {
     let buttonName: String?
 }
 
-struct OrderDynamicField: Codable {
+struct OrderDynamicField: Codable, Hashable {
     let name: String?
     let value: String?
 }
