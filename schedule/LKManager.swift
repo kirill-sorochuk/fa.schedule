@@ -327,7 +327,8 @@ final class LKManager: ObservableObject {
                 shortName: nil, firstName: nil, middleName: nil,
                 lastName: cache["fullName"] as? String, preferredLanguage: nil,
                 avatarUrl: cache["avatarUrl"] as? String,
-                id: cache["userId"] as? String, group: cache["group"] as? String
+                id: cache["userId"] as? String, group: cache["group"] as? String,
+                filial: nil, identityDoc: nil, availableOtpMethods: nil
             )
             self.session = LKSession(
                 user: user, expires: nil, extendedUserData: ext,
