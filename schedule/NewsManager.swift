@@ -121,6 +121,13 @@ enum NewsSection: String, CaseIterable, Identifiable, Codable, Hashable {
     case university = "university"
     case science = "science"
     case sport = "sport"
+    case graduate = "graduate"           // Аспирантура
+    case rectorate = "rectorate"         // Приемная ректора
+    case alumni = "alumni"               // Выпускники
+    case student_life = "student_life"   // Студенческая жизнь
+    case scholarship = "scholarship"     // Стипендии и выплаты
+    case dormitory = "dormitory"         // Общежитие
+    case science_pop = "science_pop"     // Научпоп
     case faculties = "faculties"
 
     var id: String { rawValue }
@@ -130,6 +137,13 @@ enum NewsSection: String, CaseIterable, Identifiable, Codable, Hashable {
         case .university: return "Университет"
         case .science: return "Студенческая наука"
         case .sport: return "Спорт"
+        case .graduate: return "Аспирантура"
+        case .rectorate: return "Приемная ректора"
+        case .alumni: return "Выпускники"
+        case .student_life: return "Студенческая жизнь"
+        case .scholarship: return "Стипендии и выплаты"
+        case .dormitory: return "Общежитие"
+        case .science_pop: return "Научпоп"
         case .faculties: return "Факультеты"
         }
     }
@@ -139,6 +153,13 @@ enum NewsSection: String, CaseIterable, Identifiable, Codable, Hashable {
         case .university: return "building.columns"
         case .science: return "atom"
         case .sport: return "trophy"
+        case .graduate: return "graduationcap.fill"
+        case .rectorate: return "building.badge.shield"
+        case .alumni: return "person.2.square.stack"
+        case .student_life: return "party.popper"
+        case .scholarship: return "banknote"
+        case .dormitory: return "house.lodge"
+        case .science_pop: return "lightbulb"
         case .faculties: return "building.2.crop.circle"
         }
     }
@@ -148,6 +169,13 @@ enum NewsSection: String, CaseIterable, Identifiable, Codable, Hashable {
         case .university:     return "https://www.fa.ru/university/press-center/"
         case .science:        return "https://www.fa.ru/for-students/student-science/nso/news/"
         case .sport:          return "https://www.fa.ru/university/structure/education/sk/news/"
+        case .graduate:       return "https://www.fa.ru/aspirantura/"
+        case .rectorate:      return "https://www.fa.ru/university/reception/"
+        case .alumni:         return "https://www.fa.ru/alumni/"
+        case .student_life:   return "https://www.fa.ru/for-students/student-life/"
+        case .scholarship:    return "https://www.fa.ru/for-students/scholarships/"
+        case .dormitory:      return "https://www.fa.ru/university/dormitory/"
+        case .science_pop:    return "https://www.fa.ru/science/popular-science/"
         case .faculties:      return ""
         }
     }

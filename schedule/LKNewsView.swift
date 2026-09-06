@@ -89,12 +89,14 @@ struct LKNewsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Меню секций (фиксированно сверху)
+            // Меню секций — fixed panel (не перекрывает контент)
             sectionMenu
+                .background(Palette.background.opacity(0.95))
 
             // Меню факультетов (если активен режим факультетов)
             if isFacultiesMode {
                 facultyBar
+                    .background(Palette.background.opacity(0.95))
             }
 
             // Контент новостей (занимает оставшееся место)
@@ -109,6 +111,7 @@ struct LKNewsView: View {
                     SettingsView(viewModel: scheduleVM)
                 } label: {
                     Image(systemName: "gearshape")
+                        .foregroundColor(.accentColor)
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
@@ -225,8 +228,8 @@ struct LKNewsView: View {
                                 .font(.subheadline.weight(.semibold))
                                 .fixedSize(horizontal: true, vertical: false)
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 7)
                         .background(
                             NewsCapsuleBackground(isSelected: isSelected)
                         )
@@ -248,8 +251,9 @@ struct LKNewsView: View {
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, 10)
+            .padding(.vertical, 8)
         }
+        .background(Palette.background.opacity(0.95))
     }
 
     // MARK: - Меню тулбара (только формат)
@@ -316,8 +320,8 @@ struct LKNewsView: View {
                                     .font(.subheadline.weight(.medium))
                                     .fixedSize(horizontal: true, vertical: false)
                             }
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 7)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
                             .background(
                                 NewsCapsuleBackground(isSelected: isSelected)
                             )
@@ -352,13 +356,13 @@ struct LKNewsView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                .padding(.vertical, 7)
+                .padding(.vertical, 6)
             }
 
             if showFacultyHint {
                 HStack(spacing: 6) {
                     Image(systemName: "hand.tap").font(.system(size: 13))
-                    Text("Двойной тап или удержание для закрепления")
+                    Text("Двойной тап для закрепления")
                         .font(.caption2.weight(.medium))
                 }
                 .foregroundColor(.white)
@@ -455,7 +459,10 @@ struct LKNewsView: View {
         VStack(spacing: 16) {
             Spacer()
             ProgressView().controlSize(.large)
-            Text("Загрузка новостей...").font(.subheadline).foregroundColor(.secondary)
+                .tint(.accentColor)
+            Text("Загрузка новостей...")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
             Spacer()
         }
     }
@@ -463,10 +470,19 @@ struct LKNewsView: View {
     private func errorView(_ message: String) -> some View {
         VStack(spacing: 16) {
             Spacer()
-            Image(systemName: "wifi.exclamationmark").font(.system(size: 48)).foregroundColor(.secondary.opacity(0.5))
-            Text(message).font(.subheadline).foregroundColor(.secondary)
-            Button("Повторить") { manager.refresh(manager.selectedSection) }
-                .font(.subheadline.bold()).foregroundColor(.accentColor)
+            Image(systemName: "wifi.exclamationmark")
+                .font(.system(size: 48))
+                .foregroundColor(.orange.opacity(0.7))
+            Text(message)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+            Button("Повторить") {
+                manager.refresh(manager.selectedSection)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
             Spacer()
         }
     }
@@ -474,12 +490,17 @@ struct LKNewsView: View {
     private var emptyView: some View {
         VStack(spacing: 16) {
             Spacer()
-            Image("MascotBook")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 100)
-                .accessibilityHidden(true)
-            Text("Новостей пока нет").font(.title3.bold()).foregroundColor(.secondary)
+            Image(systemName: "newspaper")
+                .font(.system(size: 56))
+                .foregroundColor(.secondary.opacity(0.5))
+            Text("Новостей пока нет")
+                .font(.headline)
+                .foregroundColor(.secondary)
+            Text("Здесь появятся новости университета, науки и спорта")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40)
             Spacer()
         }
     }
