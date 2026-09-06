@@ -1,36 +1,56 @@
 ```
-# Compiled and build artifacts
+# Build artifacts
 *.o
 *.obj
-*.out
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.exe
+
+# Xcode/Swift specific
+*.swiftmodule
+*.swiftdoc
+*.dSYM/
+build/
+.derivedData/
 
 # Dependencies
 Pods/
 Carthage/
-build/
-DerivedData/
+vendor/
 
-# Logs and temp files
+# Logs
 *.log
-*.tmp
-*.swp
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Editors
+# Editor/IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*.tmp
 
-# Xcode
-*.xcodeproj/
-*.xcworkspace/
-*.xcuserdatad/
-*.xccheckout
-project.xcworkspace/
-xcuserdata/
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Cache
+.mypy_cache/
+.pytest_cache/
+.gradle/
+target/
+node_modules/
+__pycache__/
+*.pyc
 ```
