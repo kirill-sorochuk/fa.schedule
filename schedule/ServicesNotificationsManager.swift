@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 import WebKit
 
 // MARK: - Модели уведомлений (lk.fa.ru/services/api/profile/v1/notification)
@@ -45,6 +46,14 @@ struct ServicesNotification: Codable, Identifiable, Hashable {
     
     var isUnread: Bool {
         seenAt == nil
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: ServicesNotification, rhs: ServicesNotification) -> Bool {
+        lhs.id == rhs.id
     }
 }
 

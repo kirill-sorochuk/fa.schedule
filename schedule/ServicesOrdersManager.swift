@@ -1,4 +1,6 @@
 import Foundation
+import Combine
+import SwiftUI
 
 // MARK: - Модели заказов/обращений (lk.fa.ru/services/api/otrs/v2/servicing/service-ticket)
 
@@ -54,6 +56,14 @@ struct ServicesOrder: Codable, Identifiable, Hashable {
     
     var serviceName: String {
         service?.title ?? service?.name ?? "Услуга"
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: ServicesOrder, rhs: ServicesOrder) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
