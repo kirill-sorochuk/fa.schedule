@@ -57,7 +57,7 @@ struct ServicesNotification: Codable, Identifiable, Hashable {
     }
 }
 
-struct ServicesNotificationData: Codable {
+struct ServicesNotificationData: Codable, Hashable {
     let platforms: [String]?
     let message: String?              // HTML-контент (для деталей)
     let title: String?               // "Система расчетов FINPAY"
