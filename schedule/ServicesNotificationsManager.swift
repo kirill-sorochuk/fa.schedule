@@ -64,16 +64,10 @@ struct ServicesNotificationData: Codable, Hashable {
     let announcement: String?        // Краткий анонс
     let publishFrom: Int64?
     let notificationId: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case platforms, message, title, announcement, publishFrom
-        case notificationId = "notificationId"
-    }
 }
 
 // MARK: - Менеджер уведомлений
 
-@MainActor
 final class ServicesNotificationsManager: ObservableObject {
     static let shared = ServicesNotificationsManager()
     

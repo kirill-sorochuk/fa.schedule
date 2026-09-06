@@ -95,7 +95,6 @@ struct OrderDynamicField: Codable, Hashable {
 
 // MARK: - Менеджер заказов
 
-@MainActor
 final class ServicesOrdersManager: ObservableObject {
     static let shared = ServicesOrdersManager()
     
