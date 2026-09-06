@@ -611,12 +611,20 @@ struct LKProfileDetailsView: View {
                     if let group = s.studentGroup, !group.isEmpty {
                         copyRow("Группа", value: group, key: "group")
                     }
+                    // Филиал (из расширенных данных)
+                    if let filial = s.extendedUserData?.filial, !filial.isEmpty {
+                        copyRow("Филиал", value: filial, key: "filial")
+                    }
                     if let login = s.extendedUserData?.login, !login.isEmpty {
                         copyRow("Логин", value: login, key: "login")
                     }
                     let email = s.extendedUserData?.email ?? s.user?.email ?? ""
                     if !email.isEmpty {
                         copyRow("Email", value: email, key: "email")
+                    }
+                    // Документ (identityDoc)
+                    if let identityDoc = s.extendedUserData?.identityDoc, !identityDoc.isEmpty {
+                        copyRow("Документ", value: identityDoc, key: "identityDoc")
                     }
                 }
 
