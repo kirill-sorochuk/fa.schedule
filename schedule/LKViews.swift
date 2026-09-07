@@ -350,6 +350,17 @@ struct LKRootView: View {
                 }
             }
 
+            HStack(spacing: 12) {
+                fitnessNavCard(title: "Обращения",
+                               icon: "text.bubble.fill", color: .orange) {
+                    LKServicesOrdersView()
+                }
+                fitnessNavCard(title: "Рейтинг",
+                               icon: "star.fill", color: .yellow) {
+                    LKRatingView()
+                }
+            }
+
             // — Приложение —
             sectionLabel("Приложение")
 
