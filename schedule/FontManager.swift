@@ -12,20 +12,6 @@ enum FontMode: String, CaseIterable {
     var icon: String { "textformat" }
 }
 
-extension Font {
-    /// Возвращает системный шрифт для стиля (раньше применял Open Sans / Golos).
-    static func app(_ style: Font.TextStyle, mode: FontMode = .system) -> Font {
-        .system(style)
-    }
-
-    static func appBody(_ mode: FontMode = .system) -> Font { .system(.body) }
-    static func appHeadline(_ mode: FontMode = .system) -> Font { .system(.headline) }
-    static func appTitle2(_ mode: FontMode = .system) -> Font { .system(.title2) }
-    static func appTitle3(_ mode: FontMode = .system) -> Font { .system(.title3) }
-    static func appCaption(_ mode: FontMode = .system) -> Font { .system(.caption) }
-    static func appSubheadline(_ mode: FontMode = .system) -> Font { .system(.subheadline) }
-}
-
 // MARK: - FontManager (заглушка, не делает ничего)
 enum FontManager {
     static var currentMode: FontMode { .system }

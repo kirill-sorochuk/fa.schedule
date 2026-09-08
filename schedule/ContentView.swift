@@ -1207,7 +1207,6 @@ struct SettingsView: View {
     @AppStorage("accentColor") private var accent = "faTeal"
     @AppStorage("detailPresentation") private var detailPresentation = "sheet"
     @AppStorage("iconColorMode") private var iconColorMode = "accent"
-    @AppStorage("fontMode") private var fontMode = "system"
     @AppStorage("newsDisplayFormat") private var newsDisplayFormat: NewsDisplayFormat = .list
     @AppStorage("mailAutoCheck") private var mailAutoCheck = true
     @AppStorage("mailNotifications") private var mailNotifications = true
@@ -1312,23 +1311,15 @@ struct SettingsView: View {
                 Picker("Цвет иконок", selection: $iconColorMode) {
                     Text("Акцентный").tag("accent")
                     Text("Многоцветные").tag("colorful")
-                    Text("Без цвета").tag("none")
                 }
                 .pickerStyle(.segmented)
 
-                // Шрифт
-                Picker("Шрифт", selection: $fontMode) {
-                    ForEach(FontMode.allCases, id: \.rawValue) { mode in
-                        Text(mode.label).tag(mode.rawValue)
-                    }
-                }
-                .pickerStyle(.segmented)
             } header: {
                 Text("Внешний вид")
-            } footer: {
-                Text("Liquid Glass — стеклянный эффект карточек (iOS 26+). Шрифт: системные (SF Pro), Open Sans или Golos Text (фирменные по брендбуку).")
             }
-
+            } footer: {
+                Text("Liquid Glass — стеклянный эффект карточек (iOS 26+).")
+            }
             // ========================
             // РАСПИСАНИЕ
             // ========================

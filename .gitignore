@@ -1,1 +1,43 @@
-Nothing should be ignored based on the provided file changes, as they only include source code files (.py and .swift) without any build artifacts, dependencies, or temporary files.
+```
+# Build artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.exe
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+*.pbxuser
+*.mode1v3
+*.perspectivev3
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+build/
+DerivedData/
+
+# Swift
+.swiftpm/
+.swift-version
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Dependencies
+Pods/
+Carthage/
+vendor/
+```
