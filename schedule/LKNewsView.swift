@@ -1,4 +1,5 @@
 import SwiftUI
+import WebKit
 
 // ======================================================================
 // LKNewsView.swift — Новости с прозрачной шапкой (Telegram-style)

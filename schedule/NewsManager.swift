@@ -154,7 +154,7 @@ enum NewsSection: String, CaseIterable, Identifiable, Codable, Hashable {
         case .science: return "atom"
         case .sport: return "trophy"
         case .graduate: return "graduationcap.fill"
-        case .rectorate: return "building.badge.shield"
+        case .rectorate: return "building.shield"  // building.badge.shield нет в iOS
         case .alumni: return "person.2.square.stack"
         case .student_life: return "party.popper"
         case .scholarship: return "banknote"
